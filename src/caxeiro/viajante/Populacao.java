@@ -5,7 +5,6 @@
  */
 package caxeiro.viajante;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
@@ -15,18 +14,18 @@ import java.util.LinkedList;
 public class Populacao {
 
     int size;
-    public ArrayList<LinkedList<No>> caminhos;
+    public LinkedList<LinkedList<No>> caminhos;
 
     public Populacao(int size) {
         this.size = size;
-        caminhos = new ArrayList<>();
+        caminhos = new LinkedList<>();
     }
 
-    public ArrayList<LinkedList<No>> getCaminhos() {
+    public LinkedList<LinkedList<No>> getCaminhos() {
         return caminhos;
     }
 
-    public void setCaminhos(ArrayList<LinkedList<No>> caminhos) {
+    public void setCaminhos(LinkedList<LinkedList<No>> caminhos) {
         this.caminhos = caminhos;
     }
 
@@ -36,5 +35,9 @@ public class Populacao {
 
     public void setSize(int size) {
         this.size = size;
+    }
+
+    public void adicionarCaminho(LinkedList<No> caminho){
+        this.getCaminhos().add(caminho);
     }
 }

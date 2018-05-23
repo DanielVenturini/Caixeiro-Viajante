@@ -27,7 +27,7 @@ public class Reader {
            
             String a = in.nextLine();
             String[] line = a.split(" ");
-             System.out.println(a);
+            
             
 
             if (line[0].equals("DIMENSION:")) {

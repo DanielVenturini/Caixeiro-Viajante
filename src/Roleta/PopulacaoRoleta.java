@@ -14,8 +14,8 @@ import caxeiro.viajante.No;
  */
 public class PopulacaoRoleta {
 
-    private LinkedList<No> caminho;
-    private int valorFitness;
+    private final LinkedList<No> caminho;
+    private final int valorFitness;
 
     public PopulacaoRoleta(LinkedList<No> caminho, int valorFitness) {
         this.caminho = caminho;

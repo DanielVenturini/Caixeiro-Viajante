@@ -14,7 +14,7 @@ import java.util.Random;
  *
  * @author Daniel
  */
-public abstract class Ordenado implements CrossOver{
+public class Ordenado implements CrossOver{
 
     @Override
     public LinkedList<No> geraFilho(LinkedList<No> pai1, LinkedList<No> pai2, int k) {
