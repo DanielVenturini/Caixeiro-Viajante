@@ -5,9 +5,11 @@
  */
 package CrossOver;
 
+import Populacao.Caminho;
 import java.util.Collections;
 import java.util.LinkedList;
-import caxeiro.viajante.No;
+import Populacao.No;
+import Populacao.OperacoesPopulacao;
 import java.util.Random;
 
 /**
@@ -17,7 +19,10 @@ import java.util.Random;
 public class Ordenado implements CrossOver{
 
     @Override
-    public LinkedList<No> geraFilho(LinkedList<No> pai1, LinkedList<No> pai2, int k) {
+    public Caminho geraFilho(Caminho p1, Caminho p2, int k) {
+
+        LinkedList<No> pai1 = p1.getCaminho();
+        LinkedList<No> pai2 = p2.getCaminho();
 
         // para o filho clona o primeir pai
         LinkedList<No> filho = (LinkedList<No>) pai1.clone();
@@ -43,7 +48,8 @@ public class Ordenado implements CrossOver{
         }
 
         // print(p, p_ord, s, filho);
-        return filho;
+        // retorna o caminho filho com sua funcao fitness
+        return new Caminho(filho, OperacoesPopulacao.fitness(filho));
     }
 
     private static int[] getElementosEmRelacao(LinkedList<No> s, int k, LinkedList<No> pai2) {

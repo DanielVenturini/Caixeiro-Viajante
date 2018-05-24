@@ -5,8 +5,7 @@
  */
 package CrossOver;
 
-import java.util.LinkedList;
-import caxeiro.viajante.No;
+import Populacao.Caminho;
 
 /**
  *
@@ -14,6 +13,6 @@ import caxeiro.viajante.No;
  */
 public interface CrossOver {
 
-    public abstract LinkedList<No> geraFilho(LinkedList<No> pai1, LinkedList<No> pai2, int k);
+    public abstract Caminho geraFilho(Caminho p1, Caminho p2, int k);
     
 }

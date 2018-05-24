@@ -5,9 +5,11 @@
  */
 package CrossOver;
 
+import Populacao.OperacoesPopulacao;
 import java.util.LinkedList;
-import caxeiro.viajante.No;
+import Populacao.Caminho;
 import java.util.Random;
+import Populacao.No;
 
 /**
  *
@@ -16,7 +18,10 @@ import java.util.Random;
 public class Alternativo implements CrossOver {
 
     @Override
-    public LinkedList<No> geraFilho(LinkedList<No> pai1, LinkedList<No> pai2, int corte) {
+    public Caminho geraFilho(Caminho p1, Caminho p2, int corte) {
+
+        LinkedList<No> pai1 = p1.getCaminho();
+        LinkedList<No> pai2 = p2.getCaminho();
 
         LinkedList<No> filho = (LinkedList<No>) pai1.clone();
         Random gerador = new Random();
@@ -38,7 +43,7 @@ public class Alternativo implements CrossOver {
             }
         }
 
-        return filho;
+        return new Caminho(filho, OperacoesPopulacao.fitness(filho));
     }
 
     private static boolean notin(No no, LinkedList<No> pai, int max){

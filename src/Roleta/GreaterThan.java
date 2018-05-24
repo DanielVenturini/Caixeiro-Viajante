@@ -5,8 +5,7 @@
  */
 package Roleta;
 
-import CrossOver.*;
-import caxeiro.viajante.No;
+import Populacao.Caminho;
 import java.util.Comparator;
 
 /**
@@ -15,20 +14,12 @@ import java.util.Comparator;
  */
 
 public class GreaterThan implements Comparator {
+
     @Override
-    public int compare(Object arg0, Object arg1) {
-        No n1 = (No) arg0;
-        No n2 = (No) arg1;
+    public int compare(Object t, Object t1) {
+        Caminho caminho1 = (Caminho) t;
+        Caminho caminho2 = (Caminho) t1;
 
-        int i1 = n1.getLabel();
-        int i2 = n2.getLabel();
-
-        if(i1 < i2) {
-            return -1;
-        } else if(i1 == i2) {
-            return 0;
-        } else {
-            return 1;
-        }
+        return (caminho1.getValorFitness() < caminho2.getValorFitness()) ? -1 : 0;
     }
 }

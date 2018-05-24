@@ -5,7 +5,8 @@
  */
 package caxeiro.viajante;
 
-import Population.populacao;
+import Populacao.Populacao;
+import Populacao.OperacoesPopulacao;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.LinkedList;
@@ -21,7 +22,7 @@ public class TSP {
      * @throws java.io.FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        Populacao p  = populacao.inicializaPopulacao("a280.tsp", 10);
+        Populacao p  = OperacoesPopulacao.inicializaPopulacao("a280.tsp", 10);
     }
     
 }

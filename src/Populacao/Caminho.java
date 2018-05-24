@@ -3,21 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Roleta;
+package Populacao;
 
 import java.util.LinkedList;
-import caxeiro.viajante.No;
 
 /**
  *
- * @author venturini
+ * @author Daniel
  */
-public class PopulacaoRoleta {
+public class Caminho {
 
-    private final LinkedList<No> caminho;
-    private final int valorFitness;
+    private LinkedList<No> caminho;
+    private int valorFitness;
 
-    public PopulacaoRoleta(LinkedList<No> caminho, int valorFitness) {
+    public Caminho(LinkedList<No> caminho, int valorFitness) {
         this.caminho = caminho;
         this.valorFitness = valorFitness;
     }
@@ -26,7 +25,15 @@ public class PopulacaoRoleta {
         return caminho;
     }
 
+    public void setCaminho(LinkedList<No> caminho) {
+        this.caminho = caminho;
+    }
+
     public int getValorFitness() {
         return valorFitness;
+    }
+
+    public void setValorFitness(int valorFitness) {
+        this.valorFitness = valorFitness;
     }
 }

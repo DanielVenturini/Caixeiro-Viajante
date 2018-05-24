@@ -5,7 +5,7 @@
  */
 package CrossOver;
 
-import caxeiro.viajante.No;
+import Populacao.No;
 import java.util.Comparator;
 
 /**
