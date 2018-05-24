@@ -20,16 +20,14 @@ public class Reader {
 
     public LinkedList<No> processarArquivo(String nome) throws FileNotFoundException, IOException {
         LinkedList<No> nos = new LinkedList<>();
-       
+
         Scanner in = new Scanner(new FileReader("./src/data/" + nome));
         int dimensao = 0;
 
         while (in.hasNext()) {
-           
+
             String a = in.nextLine();
             String[] line = a.split(" ");
-            
-            
 
             if (line[0].equals("DIMENSION:")) {
                 dimensao = Integer.parseInt(line[1]);
@@ -38,21 +36,20 @@ public class Reader {
             if (line[0].equals("NODE_COORD_SECTION")) {
                 return getNos(dimensao, in);
             }
-
-           
         }
 
         return nos;
     }
 
     public LinkedList<No> getNos(int dimensao, Scanner in) {
+
         LinkedList<No> nos = new LinkedList<>();
         for (int i = 0; i < dimensao; i++) {
             String [] line = in.nextLine().trim().replaceAll("   ", "  ").replaceAll("  "," ").split(" ");
             No no = new No(Integer.parseInt(line[0]),Float.parseFloat(line[1]),Float.parseFloat(line[2]));
             nos.add(no);
-        
         }
+
         return nos;
 
     }

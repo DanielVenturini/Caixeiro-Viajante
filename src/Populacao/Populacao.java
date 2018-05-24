@@ -15,7 +15,7 @@ public class Populacao {
 
     public LinkedList<Caminho> caminhos;
 
-    Populacao() {
+    public Populacao() {
         caminhos = new LinkedList<>();
     }
 
