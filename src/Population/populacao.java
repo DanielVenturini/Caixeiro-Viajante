@@ -23,7 +23,7 @@ public class populacao {
         Reader reader = new Reader();
         // le do arquivo
         LinkedList<No> wayMain = reader.processarArquivo(nomeFile);
-        // lista com a populacao
+        // aqui ficara guardada a nova populacao
         Populacao populacao = new Populacao(k);
 
         LinkedList<No> way;
@@ -31,8 +31,8 @@ public class populacao {
 
             way = (LinkedList<No>) wayMain.clone(); // clona o caminho original
             Collections.shuffle(way);               // embaralha ele
-            
-            populacao.adicionarCaminho(way);                    // adiciona na populacao
+
+            populacao.adicionarCaminho(way);        // adiciona na populacao
         }
 
         return populacao;

@@ -21,15 +21,7 @@ public class TSP {
      * @throws java.io.FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException, IOException {
-
-        
-      
         Populacao p  = populacao.inicializaPopulacao("a280.tsp", 10);
-        
-        
-
-        while(true){
-        }
     }
     
 }
