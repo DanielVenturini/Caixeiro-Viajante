@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.LinkedList;
 import caxeiro.viajante.Reader;
+import java.util.Comparator;
 
 /**
  *
@@ -33,6 +34,16 @@ public class OperacoesPopulacao {
             Caminho caminho = new Caminho(nos);   // cria a classe caminho com seu valor fitness
             populacao.adicionarCaminho(caminho);                // adiciona na populacao
         }
+
+        // ordenando pelo valor fitness
+        // o melhor fica sempre no final da lista
+        // pois eh inversamento proporcional
+        Collections.sort(populacao.caminhos, new Comparator<Caminho>(){
+            @Override
+            public int compare(Caminho c, Caminho c1) {
+                return c.getValorFitness() < c1.getValorFitness()? 1 : -1;
+            }
+        });
 
         return populacao;
     }

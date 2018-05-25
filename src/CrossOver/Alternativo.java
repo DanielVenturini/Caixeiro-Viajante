@@ -25,22 +25,30 @@ public class Alternativo implements CrossOver {
         LinkedList<No> filho = (LinkedList<No>) pai1.clone();
         Random gerador = new Random();
 
+        System.out.print("\nPai1: ");
+        for(No n : pai1){
+            System.out.print(n.getLabel() + " ");
+        }System.out.print("\nPai2: ");
+        for(No n : pai1){
+            System.out.print(n.getLabel() + " ");
+        }
         // se gerar zero, recupera outro ponto de corte
         while((corte = gerador.nextInt(pai1.size())) == 0);
 
         for(int i = corte; i < pai1.size(); i ++){
 
-            No no1 = pai1.get(i);
+            No no1 = filho.get(i);
             No no2 = pai2.get(i);
             // cada elemento de p2 é verificado antes de ser copiado para a solução, de forma que
             // elementos já existentes não sejam duplicados.
             if(notin(no1, pai2, i) && notin(no2, pai1, i)){
-                No noFilho = filho.get(i);
-                noFilho.setLabel(no2.getLabel());
-                noFilho.setLatitude(no2.getLatitude());
-                noFilho.setLongitude(no2.getLongitude());
+                no1.setLabel(no2.getLabel());
+                no1.setLatitude(no2.getLatitude());
+                no1.setLongitude(no2.getLongitude());
             }
+            //System.out.print(no1.getLabel() + " ");
         }
+            //System.out.println("");
 
         return new Caminho(filho);
     }

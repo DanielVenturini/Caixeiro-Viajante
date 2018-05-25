@@ -23,8 +23,9 @@ public class TSP {
      * @throws java.io.FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        Caminho c = new Motor(new Ordenado(), "a280.tsp", 10, 3, new NaoElitismo(), 100).ligar();
+        Caminho c = new Motor(new Alternativo(), "berlin52.tsp", 10, 3, new NaoElitismo(), 5).ligar();
 
+        System.out.println("\n\nValor fitness: " + c.getValorFitness());
         for(int i = 0; i < c.getSize(); i ++){
             for(int k = i+1; k < c.getSize(); k ++){
                 if(c.getCaminho().get(i).getLabel() == c.getCaminho().get(k).getLabel()){

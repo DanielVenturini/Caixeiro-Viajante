@@ -13,8 +13,7 @@ import Populacao.Populacao;
  *
  * @author Daniel
  */
-public class NaoElitismo extends GeraPopulacao{
-
+public class NaoElitismo extends GeraPopulacao {
 
     // ponto de corte para o crossOver Alternativo
     // quando no crossOver ordenado, o ponto de corte nao eh usado, apesar de requerido como parametro

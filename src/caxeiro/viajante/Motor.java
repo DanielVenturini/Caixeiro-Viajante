@@ -38,6 +38,7 @@ public class Motor {
     public Caminho ligar() throws IOException{
 
         // inicializa a populacao
+        // para cada individuo ja foi calculado o fitness
         Populacao pop = OperacoesPopulacao.inicializaPopulacao(nomeArquivo, size);
         // o ultimo é sempre o melhor dos caminhos
         Caminho melhorCaminho = pop.getCaminhos().get(pop.getCaminhos().size()-1);
@@ -46,7 +47,11 @@ public class Motor {
         while(i >= 0){
 
             // selecione os melhores pais para gerar novos indivíduos.
+            //System.out.println("Valor fitness: " + pop.getCaminhos().get(pop.getCaminhos().size()-1).getValorFitness());
+            // adiciona a populacao para calcular a nova
             geradorPop.setPopulacao(pop);
+            // gera a nova populacao com o crossover escolhido
+            // se for o alternativo, sera necessario o valor do k, senao, o valor sera inutilizavel
             pop = geradorPop.getNovaPopulacao(crossOver, k);
 
             // pegando o melhor da nova populacao
@@ -60,10 +65,11 @@ public class Motor {
             }
         }
 
+        /*
         System.out.println("Melhor caminho para " + nomeArquivo);
         for(No n : melhorCaminho.getCaminho()){
             System.out.println(n.getLabel());
-        }
+        }*/
 
         return melhorCaminho;
     }
