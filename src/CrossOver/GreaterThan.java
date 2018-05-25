@@ -14,6 +14,7 @@ import java.util.Comparator;
  */
 
 public class GreaterThan implements Comparator {
+    // ordena em ordem decrescente
     @Override
     public int compare(Object arg0, Object arg1) {
         No n1 = (No) arg0;
@@ -23,11 +24,11 @@ public class GreaterThan implements Comparator {
         int i2 = n2.getLabel();
 
         if(i1 < i2) {
-            return -1;
+            return 1;
         } else if(i1 == i2) {
             return 0;
         } else {
-            return 1;
+            return -1;
         }
     }
 }

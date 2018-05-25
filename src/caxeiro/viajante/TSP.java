@@ -9,7 +9,6 @@ import Populacao.Populacao;
 import Populacao.OperacoesPopulacao;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.LinkedList;
 
 /**
  *
