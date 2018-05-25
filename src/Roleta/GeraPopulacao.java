@@ -5,9 +5,11 @@
  */
 package Roleta;
 
+import CrossOver.CrossOver;
 import java.util.Collections;
 import Populacao.Populacao;
 import Populacao.Caminho;
+import java.util.Comparator;
 import java.util.Random;
 
 /**
@@ -15,23 +17,20 @@ import java.util.Random;
  * @author Daniel
  */
 
-abstract class GeraPopulacao {
+public abstract class GeraPopulacao {
 
-    CrossOver.GreaterThan funOrdenacao;
-    Populacao populacao;
-    int adequacao = 0;  // valor de adequacao
+    protected Populacao populacao;
+    protected int adequacao = 0;  // valor de adequacao
 
-    public GeraPopulacao(Populacao populacao) {
-
-        // ordena pela funcao fitness em ordem decrescente
-        // entao os melhores serao os ultimos
-        funOrdenacao = new CrossOver.GreaterThan();
-        setPopulacao(populacao);
-    }
-
-    protected void setPopulacao(Populacao populacao) {
+    public void setPopulacao(Populacao populacao) {
         this.populacao = populacao;
-        Collections.sort(this.populacao.caminhos, funOrdenacao);
+        Collections.sort(this.populacao.caminhos, new Comparator<Caminho>(){
+            @Override
+            public int compare(Caminho t, Caminho t1) {
+                return (t.getValorFitness() < t1.getValorFitness()) ? 1 : -1;
+            }
+        });
+
         adequacao = adequacao();
     }
 
@@ -64,7 +63,7 @@ abstract class GeraPopulacao {
             Caminho caminho = populacao.getCaminhos().get(i);
             s += caminho.getValorFitness();
             if(s >= r){
-                return populacao.getCaminhos().get(populacao.getSize()-i);
+                return populacao.getCaminhos().get(populacao.getSize()-i-1);
             }
         }
 
@@ -81,5 +80,5 @@ abstract class GeraPopulacao {
         return soma;
     }
 
-    public abstract Populacao getNovaPopulacao();
+    public abstract Populacao getNovaPopulacao(CrossOver crossOver, int corte);
 }

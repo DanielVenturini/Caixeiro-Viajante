@@ -5,7 +5,7 @@
  */
 package CrossOver;
 
-import Populacao.No;
+import Populacao.Caminho;
 import java.util.Comparator;
 
 /**
@@ -17,15 +17,15 @@ public class GreaterThan implements Comparator {
     // ordena em ordem decrescente
     @Override
     public int compare(Object arg0, Object arg1) {
-        No n1 = (No) arg0;
-        No n2 = (No) arg1;
+        Caminho caminho0 = (Caminho) arg0;
+        Caminho caminho1 = (Caminho) arg1;
 
-        int i1 = n1.getLabel();
-        int i2 = n2.getLabel();
+        double i0 = caminho0.getValorFitness();
+        double i1 = caminho1.getValorFitness();
 
-        if(i1 < i2) {
+        if(i0 < i1) {
             return 1;
-        } else if(i1 == i2) {
+        } else if(i0 == i1) {
             return 0;
         } else {
             return -1;

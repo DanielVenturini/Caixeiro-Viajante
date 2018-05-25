@@ -5,8 +5,10 @@
  */
 package caxeiro.viajante;
 
-import Populacao.Populacao;
-import Populacao.OperacoesPopulacao;
+import CrossOver.Alternativo;
+import CrossOver.Ordenado;
+import Populacao.Caminho;
+import Roleta.NaoElitismo;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -21,7 +23,15 @@ public class TSP {
      * @throws java.io.FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        Populacao p  = OperacoesPopulacao.inicializaPopulacao("a280.tsp", 10);
+        Caminho c = new Motor(new Ordenado(), "a280.tsp", 10, 3, new NaoElitismo(), 100).ligar();
+
+        for(int i = 0; i < c.getSize(); i ++){
+            for(int k = i+1; k < c.getSize(); k ++){
+                if(c.getCaminho().get(i).getLabel() == c.getCaminho().get(k).getLabel()){
+                    System.out.println("RETORNOU AQUI: " + c.getCaminho().get(i).getLabel() + " com " + c.getCaminho().get(k).getLabel());
+                }
+            }
+        }
     }
     
 }

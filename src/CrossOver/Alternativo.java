@@ -5,7 +5,6 @@
  */
 package CrossOver;
 
-import Populacao.OperacoesPopulacao;
 import java.util.LinkedList;
 import Populacao.Caminho;
 import java.util.Random;
@@ -43,7 +42,7 @@ public class Alternativo implements CrossOver {
             }
         }
 
-        return new Caminho(filho, OperacoesPopulacao.fitness(filho));
+        return new Caminho(filho);
     }
 
     private static boolean notin(No no, LinkedList<No> pai, int max){
@@ -55,49 +54,4 @@ public class Alternativo implements CrossOver {
 
         return true;
     }
-
-    /*
-    public void print(Populacao pop){
-        for(LinkedList<No> filho : pop.getCaminhos()){
-            System.out.print("Populacao: ");
-            for(No n : filho){
-                System.out.print(n.getLabel() + "|");
-            }
-            System.out.println("");
-        }
-    }
-
-    public static void main(String[] args) {
-        
-        Random gerador = new Random();
-        LinkedList<No> pai1 = new LinkedList<>();
-        for(int i = 0; i < 10; i ++){
-            pai1.add(new No(gerador.nextInt(1000), 1/2, 1/2));
-        }
-
-        System.out.print("Pai 1: ");
-        for(No n : pai1){
-            System.out.print(n.getLabel() + "|");
-        }
-        System.out.println("");
-
-        LinkedList<No> pai2 = new LinkedList<>();
-        for(int i = 0; i < 10; i ++){
-            pai2.add(new No(gerador.nextInt(1000), 1/2, 1/2));
-        }
-
-        System.out.print("Pai 2: ");
-        for(No n : pai2){
-            System.out.print(n.getLabel() + "|");
-        }
-        System.out.println("");
-
-        LinkedList<No> filho = geraFilho(pai1, pai2, -1);
-        System.out.print("FIlho: ");
-        for(No n : filho){
-            System.out.print(n.getLabel() + "|");
-        }
-        System.out.println("");
-        
-    } */
 }

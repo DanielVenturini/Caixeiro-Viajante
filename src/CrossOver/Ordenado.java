@@ -6,10 +6,10 @@
 package CrossOver;
 
 import Populacao.Caminho;
-import java.util.Collections;
 import java.util.LinkedList;
 import Populacao.No;
-import Populacao.OperacoesPopulacao;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Random;
 
 /**
@@ -49,7 +49,7 @@ public class Ordenado implements CrossOver{
 
         // print(p, p_ord, s, filho);
         // retorna o caminho filho com sua funcao fitness
-        return new Caminho(filho, OperacoesPopulacao.fitness(filho));
+        return new Caminho(filho);
     }
 
     private static int[] getElementosEmRelacao(LinkedList<No> s, int k, LinkedList<No> pai2) {
@@ -93,8 +93,13 @@ public class Ordenado implements CrossOver{
             s.add(novo);
         }
 
-        GreaterThan funOrdenacao = new GreaterThan();
-        Collections.sort(s, funOrdenacao);
+        Collections.sort(s, new Comparator<No>(){
+            @Override
+            public int compare(No t, No t1) {
+                return t.getLabel() < t1.getLabel() ? -1 : 0;
+            }
+        });
+ 
         return s;
     }
 
@@ -142,29 +147,5 @@ public class Ordenado implements CrossOver{
 
             i--;
         }
-    }
-
-    private static void print(int[] p, int[] p_ord, LinkedList<No> s, LinkedList<No> filho) {
-        System.out.print("\nLista P: ");
-        for (int i : p) {
-            System.out.print(i + "|");
-        }
-
-        System.out.print("\nList S: ");
-        for (No n : s) {
-            System.out.print(n.getLabel() + "|");
-        }
-
-        System.out.print("\nLista p_ord: ");
-        for (int i : p_ord) {
-            System.out.print(i + "|");
-        }
-
-        System.out.print("\nFilho: ");
-        for (No n : filho) {
-            System.out.print(n.getLabel() + "|");
-        }
-
-        System.out.println("");
     }
 }

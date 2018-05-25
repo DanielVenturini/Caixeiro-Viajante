@@ -15,21 +15,17 @@ import Populacao.Populacao;
  */
 public class NaoElitismo extends GeraPopulacao{
 
-    CrossOver crossOver;
-    int corte;
 
     // ponto de corte para o crossOver Alternativo
     // quando no crossOver ordenado, o ponto de corte nao eh usado, apesar de requerido como parametro
-    public NaoElitismo(Populacao populacao, CrossOver crossOver, int corte) {
-        super(populacao);
 
-        this.crossOver = crossOver;
-        this.corte = corte;
+    public void setPopulacao(Populacao populacao){
+        super.setPopulacao(populacao);
     }
 
     @Override
     // apenas gera uma nova populacao e retorna
-    public Populacao getNovaPopulacao() {
+    public Populacao getNovaPopulacao(CrossOver crossOver, int corte) {
         Populacao popNova = new Populacao();
         int size = super.populacao.getSize();
 
@@ -43,5 +39,4 @@ public class NaoElitismo extends GeraPopulacao{
 
         return popNova;
     }
-    
 }

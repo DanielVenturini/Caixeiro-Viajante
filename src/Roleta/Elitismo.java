@@ -5,6 +5,7 @@
  */
 package Roleta;
 
+import CrossOver.CrossOver;
 import Populacao.Populacao;
 
 /**
@@ -13,13 +14,12 @@ import Populacao.Populacao;
  */
 public class Elitismo extends GeraPopulacao{
 
-    public Elitismo(Populacao populacao) {
-        super(populacao);
+    public void setPopulacao(Populacao populacao){
+        super.setPopulacao(populacao);
     }
 
     @Override
-    public Populacao getNovaPopulacao() {
+    public Populacao getNovaPopulacao(CrossOver crossOver, int corte) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
 }

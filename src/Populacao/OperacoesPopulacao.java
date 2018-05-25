@@ -16,7 +16,7 @@ import caxeiro.viajante.Reader;
  */
 public class OperacoesPopulacao {
 
-    public static Populacao inicializaPopulacao(String nomeFile, int k) throws IOException{
+    public static Populacao inicializaPopulacao(String nomeFile, int k) throws IOException {
 
         Reader reader = new Reader();
         // le do arquivo
@@ -25,26 +25,15 @@ public class OperacoesPopulacao {
         Populacao populacao = new Populacao();
 
         LinkedList<No> nos;
-        for (int i = 0; i < k; i ++) {
+        for (int i = 0; i < k; i++) {
 
             nos = (LinkedList<No>) caminhoOriginal.clone();     // clona o caminho original
             Collections.shuffle(nos);                           // embaralha o caminho
 
-            Caminho caminho = new Caminho(nos, fitness(nos));   // cria a classe caminho com seu valor fitness
+            Caminho caminho = new Caminho(nos);   // cria a classe caminho com seu valor fitness
             populacao.adicionarCaminho(caminho);                // adiciona na populacao
         }
 
         return populacao;
-    }
-
-    public static int fitness(LinkedList<No> caminho){
-        return 10;
-    }
-
-    public static Populacao geraNovaPopulacao(Populacao popAtual){
-
-        Populacao popNova = new Populacao();
-
-        return popNova;
     }
 }
