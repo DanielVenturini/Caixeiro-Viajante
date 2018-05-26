@@ -63,11 +63,13 @@ public abstract class GeraPopulacao {
             Caminho caminho = populacao.getCaminhos().get(i);
             s += caminho.getValorFitness();
             if(s >= r){
+                System.out.println("Recupando o pai: " + (populacao.getSize()-i-1));
                 return populacao.getCaminhos().get(populacao.getSize()-i-1);
             }
         }
 
         // se chegar ate o final, retorna o mais apto
+        System.out.println("Por isso");
         return populacao.getCaminhos().getLast();
     }
 

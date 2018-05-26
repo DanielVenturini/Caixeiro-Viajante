@@ -9,9 +9,8 @@ import Populacao.OperacoesPopulacao;
 import Roleta.GeraPopulacao;
 import Populacao.Populacao;
 import CrossOver.CrossOver;
-import Populacao.Caminho;
-import Populacao.No;
 import java.io.IOException;
+import Populacao.Caminho;
 
 /**
  *
