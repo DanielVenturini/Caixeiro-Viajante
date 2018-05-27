@@ -18,6 +18,7 @@ public class NaoElitismo extends GeraPopulacao {
     // ponto de corte para o crossOver Alternativo
     // quando no crossOver ordenado, o ponto de corte nao eh usado, apesar de requerido como parametro
 
+    @Override
     public void setPopulacao(Populacao populacao){
         super.setPopulacao(populacao);
     }
@@ -36,6 +37,6 @@ public class NaoElitismo extends GeraPopulacao {
             popNova.adicionarCaminho(filho);
         }
 
-        return popNova;
+        return new Mutacao(popNova).mutacao();
     }
 }

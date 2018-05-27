@@ -5,11 +5,10 @@
  */
 package Roleta;
 
-import CrossOver.CrossOver;
 import java.util.Collections;
+import CrossOver.CrossOver;
 import Populacao.Populacao;
 import Populacao.Caminho;
-import java.util.Comparator;
 import java.util.Random;
 
 /**
@@ -24,13 +23,15 @@ public abstract class GeraPopulacao {
 
     public void setPopulacao(Populacao populacao) {
         this.populacao = populacao;
-        Collections.sort(this.populacao.caminhos, new Comparator<Caminho>(){
+        // ordenando pelo fitness
+        /*Collections.sort(this.populacao.caminhos, new Comparator<Caminho>(){
             @Override
             public int compare(Caminho t, Caminho t1) {
                 return (t.getValorFitness() < t1.getValorFitness()) ? 1 : -1;
             }
-        });
+        });*/
 
+        Collections.sort(this.populacao.caminhos, new Ordena());
         adequacao = adequacao();
     }
 
@@ -62,14 +63,12 @@ public abstract class GeraPopulacao {
 
             Caminho caminho = populacao.getCaminhos().get(i);
             s += caminho.getValorFitness();
-            if(s >= r){
-                System.out.println("Recupando o pai: " + (populacao.getSize()-i-1));
+            if(s > r){
                 return populacao.getCaminhos().get(populacao.getSize()-i-1);
             }
         }
 
         // se chegar ate o final, retorna o mais apto
-        System.out.println("Por isso");
         return populacao.getCaminhos().getLast();
     }
 

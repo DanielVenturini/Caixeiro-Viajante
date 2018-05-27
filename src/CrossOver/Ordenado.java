@@ -23,13 +23,7 @@ public class Ordenado implements CrossOver{
 
         LinkedList<No> pai1 = p1.getCaminho();
         LinkedList<No> pai2 = p2.getCaminho();
-//        System.out.print("\nPai1: ");
-//        for(No n : pai1){
-//            System.out.print(n.getLabel() + " ");
-//        }System.out.print("\nPai2: ");
-//        for(No n : pai1){
-//            System.out.print(n.getLabel() + " ");
-//        }
+
         // para o filho clona o primeir pai
         LinkedList<No> filho = (LinkedList<No>) pai1.clone();
 
@@ -53,8 +47,6 @@ public class Ordenado implements CrossOver{
             nr.setLongitude(ns.getLongitude());
         }
 
-        // print(p, p_ord, s, filho);
-        // retorna o caminho filho com sua funcao fitness
         return new Caminho(filho);
     }
 

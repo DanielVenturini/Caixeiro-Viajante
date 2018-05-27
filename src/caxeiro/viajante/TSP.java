@@ -25,7 +25,7 @@ public class TSP {
      * @throws java.io.FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        Caminho c = new Motor(new Ordenado(), "a280.tsp", 10, 3, new NaoElitismo(), 30).ligar();
+        Caminho c = new Motor(new Alternativo(), "a280.tsp", 10, 3, new Elitismo(), 110).ligar();
 
         System.out.println("Valor fitness: " + c.getValorFitness());
         System.out.println("Melhor caminho: ");

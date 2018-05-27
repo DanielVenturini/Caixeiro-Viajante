@@ -41,6 +41,6 @@ public class Elitismo extends GeraPopulacao{
             }
         }
 
-        return popNova;
+        return new Mutacao(popNova).mutacao();
     }
 }

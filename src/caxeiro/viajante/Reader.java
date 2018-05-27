@@ -45,12 +45,11 @@ public class Reader {
 
         LinkedList<No> nos = new LinkedList<>();
         for (int i = 0; i < dimensao; i++) {
-            String [] line = in.nextLine().trim().replaceAll("   ", "  ").replaceAll("  "," ").split(" ");
+            String [] line = in.nextLine().trim().replaceAll("   ", " ").replaceAll("  "," ").split(" ");
             No no = new No(Integer.parseInt(line[0]),Float.parseFloat(line[1]),Float.parseFloat(line[2]));
             nos.add(no);
         }
 
         return nos;
-
     }
 }

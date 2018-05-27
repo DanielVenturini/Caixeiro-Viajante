@@ -18,7 +18,6 @@ public class Caminho {
 
     public Caminho(LinkedList<No> caminho) {
         this.caminho = caminho;
-        this.valorFitness = fitness();
     }
 
     public LinkedList<No> getCaminho() {
@@ -37,23 +36,28 @@ public class Caminho {
         return caminho.size();
     }
 
-    public void setValorFitness(double valorFitness) {
-        this.valorFitness = valorFitness;
+    public void setValorFitness() {
+        valorFitness = fitness();
     }
 
     public double fitness() {
-        double fitness = 0;
+        No n1 = null;
+        No n2 = caminho.get(0);
+
+        No nUltimo = caminho.get(caminho.size()-1);
+        double fitness = getDistancia(n2.getLatitude(), n2.getLongitude(), nUltimo.getLatitude(), nUltimo.getLongitude());
+
         for (int i = 0; i < caminho.size() - 1; i++) {
-            No n1 = caminho.get(i);
-            No n2 = caminho.get(i + 1);
+
+            // sempre pegamos duas vezes o mesmo elemento: quando 'i+1', e depois quando 'i'
+            // para evitar isso, entao pegamos apenas o proximo. Ai no proximo loop,
+            // o que era o proximo vai para o primeiro e pegamos entao o proximo
+            n1 = n2;
+            n2 = caminho.get(i+1);
 
             fitness += getDistancia(n1.getLatitude(), n1.getLongitude(), n2.getLatitude(), n2.getLongitude());
         }
 
-        No nPrimeiro = caminho.get(0);
-        No nUltimo = caminho.get(caminho.size()-1);
-
-        fitness += getDistancia(nPrimeiro.getLatitude(), nPrimeiro.getLongitude(), nUltimo.getLatitude(), nUltimo.getLongitude());
         return fitness;
     }
 
