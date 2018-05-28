@@ -26,21 +26,22 @@ public class teste {
 
     public static void main(String[] args){
         try{
-            Scanner parametros = new Scanner(new FileReader("./src/caxeiro/viajante/parametros"));
             FileOutputStream resultados = new FileOutputStream("./src/caxeiro/viajante/resultados");
 
             String[] arquivos = new String[6];
             arquivos[0] = "a280.tsp";
-            arquivos[1] = "berlin_52.tsp";
-            arquivos[2] = "a280.tsp";
-            arquivos[3] = "a280.tsp";
-            arquivos[4] = "a280.tsp";
-            arquivos[5] = "a280.tsp";
-            arquivos[5] = "a280.tsp";
+            arquivos[1] = "berlin52.tsp";
+            arquivos[2] = "kroA100.tsp";
+            arquivos[3] = "kroC100.tsp";
+            arquivos[4] = "kroD100.tsp";
+            arquivos[5] = "pr76.tsp";
 
+            // para cada arquivo
             for(String nomeArquivo : arquivos){
+                Scanner parametros = new Scanner(new FileReader("./src/caxeiro/viajante/parametros"));
                 resultados.write((nomeArquivo+"\n").getBytes());
 
+                // para cada parametro
                 while(parametros.hasNext()){
                     // le cada linha de parametros
                     String a = parametros.nextLine();
@@ -57,6 +58,7 @@ public class teste {
                     CrossOver crossover;
                     GeraPopulacao roleta;
                     Caminho c;
+                    // executa 10 vezes
                     for(int i = 0; i < 10; i ++){
                         try{
                             if(crossOver.equals("ordenado")){
@@ -79,8 +81,8 @@ public class teste {
                         }
                     }
                 }
-                resultados.close();
             }
+            resultados.close();
 
         } catch (IOException ex) {
             System.out.println("Erro: " + ex);
