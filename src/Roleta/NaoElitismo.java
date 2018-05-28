@@ -25,7 +25,7 @@ public class NaoElitismo extends GeraPopulacao {
 
     @Override
     // apenas gera uma nova populacao e retorna
-    public Populacao getNovaPopulacao(CrossOver crossOver, int corte) {
+    public Populacao getNovaPopulacao(CrossOver crossOver, int corte, int mutacao) {
         Populacao popNova = new Populacao();
         int size = super.populacao.getSize();
 
@@ -37,6 +37,6 @@ public class NaoElitismo extends GeraPopulacao {
             popNova.adicionarCaminho(filho);
         }
 
-        return new Mutacao(popNova).mutacao();
+        return new Mutacao(popNova).mutacao(mutacao);
     }
 }

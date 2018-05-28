@@ -31,7 +31,7 @@ public abstract class GeraPopulacao {
             }
         });*/
 
-        Collections.sort(this.populacao.caminhos, new Ordena());
+        //Collections.sort(this.populacao.caminhos, new Ordena());
         adequacao = adequacao();
     }
 
@@ -81,5 +81,5 @@ public abstract class GeraPopulacao {
         return soma;
     }
 
-    public abstract Populacao getNovaPopulacao(CrossOver crossOver, int corte);
+    public abstract Populacao getNovaPopulacao(CrossOver crossOver, int corte, int mutacao);
 }

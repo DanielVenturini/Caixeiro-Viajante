@@ -21,7 +21,8 @@ public class Elitismo extends GeraPopulacao{
 
     @Override
     // gera a nova populacao adicionando o primeiro pai que foi usado para gerar um filho
-    public Populacao getNovaPopulacao(CrossOver crossOver, int corte) {
+    // especifica qual das mutacoes será utilizada
+    public Populacao getNovaPopulacao(CrossOver crossOver, int corte, int mutacao) {
         Populacao popNova = new Populacao();
         int size = super.populacao.getSize();
 
@@ -41,6 +42,6 @@ public class Elitismo extends GeraPopulacao{
             }
         }
 
-        return new Mutacao(popNova).mutacao();
+        return new Mutacao(popNova).mutacao(mutacao);
     }
 }

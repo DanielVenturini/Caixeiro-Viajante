@@ -22,8 +22,42 @@ public class Mutacao {
         this.populacao = populacao;
     }
 
-    // na mutacao apenas trocamos o ultimo individuo com o primeiro
-    public Populacao mutacao(){
+    // na mutacao apenas trocamos o ultimo individuo com o penúltimo
+    public Populacao mutacao(int mut){
+        if(mut == 1){
+            mutacao1();
+        } else {
+            mutacao2();
+        }
+
+        return populacao;
+    }
+
+    private void mutacao1(){
+        for(Caminho individuo : populacao.getCaminhos()){
+
+            LinkedList<No> caminho = individuo.getCaminho();
+            No n1 = caminho.get(caminho.size()-1);
+            No nu = caminho.get(caminho.size()-2);
+
+            int label = n1.getLabel();
+            float latitude = n1.getLatitude();
+            float longitude = n1.getLongitude();
+
+            n1.setLabel(nu.getLabel());
+            n1.setLatitude(nu.getLatitude());
+            n1.setLongitude(nu.getLongitude());
+
+            nu.setLabel(label);
+            nu.setLatitude(latitude);
+            nu.setLongitude(longitude);
+
+            // agora sim pode calcular o valor fitness
+            individuo.setValorFitness();
+        }
+    }
+
+    private void mutacao2(){
         for(Caminho individuo : populacao.getCaminhos()){
 
             LinkedList<No> caminho = individuo.getCaminho();
@@ -45,7 +79,5 @@ public class Mutacao {
             // agora sim pode calcular o valor fitness
             individuo.setValorFitness();
         }
-
-    return populacao;
     }
 }

@@ -5,14 +5,14 @@
  */
 package caxeiro.viajante;
 
+import java.io.FileNotFoundException;
 import CrossOver.Alternativo;
+import java.io.IOException;
+import Roleta.NaoElitismo;
 import CrossOver.Ordenado;
 import Populacao.Caminho;
-import Populacao.No;
 import Roleta.Elitismo;
-import Roleta.NaoElitismo;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import Populacao.No;
 
 /**
  *
@@ -25,13 +25,7 @@ public class TSP {
      * @throws java.io.FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        Caminho c = new Motor(new Alternativo(), "a280.tsp", 10, 3, new Elitismo(), 110).ligar();
-
-        System.out.println("Valor fitness: " + c.getValorFitness());
-        System.out.println("Melhor caminho: ");
-        for(No n : c.getCaminho()){
-            System.out.print(n.getLabel() + " ");
-        }
+        Caminho c = new Motor(new Alternativo(), "a280.tsp", 10, 3, new NaoElitismo(), 110, 2).ligar();
     }
     
 }
