@@ -38,7 +38,7 @@ public class Elitismo extends GeraPopulacao{
             if(i < size){
                 popNova.adicionarCaminho(pai1);
             } else {
-                return popNova;
+                break;
             }
         }
 

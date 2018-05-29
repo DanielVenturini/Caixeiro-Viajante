@@ -69,12 +69,6 @@ public class Motor {
             }
         }
 
-        System.out.println("Valor fitness: " + melhorCaminho.getValorFitness());
-        System.out.println("Melhor caminho para " + nomeArquivo);
-        for(No n : melhorCaminho.getCaminho()){
-            System.out.print(n.getLabel() + " ");
-        }
-
         return melhorCaminho;
     }
 }

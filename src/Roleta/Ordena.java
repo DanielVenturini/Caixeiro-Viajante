@@ -18,6 +18,11 @@ public class Ordena implements Comparator{
         Caminho c1 = (Caminho) t;
         Caminho c2 = (Caminho) t1;
 
-        return (c1.getValorFitness() < c2.getValorFitness()) ? 1 : -1;
+        if(c1.getValorFitness() < c2.getValorFitness())
+            return 1;
+        if(c1.getValorFitness() == c2.getValorFitness())
+            return 0;
+        else 
+            return -1;
     }
 }
